@@ -1,6 +1,6 @@
 # sampleApp
 
-###### The code was developed as a demonstrationn of work to 
+###### The code was developed as a demonstrationn of work
 
 ## Installation Instructions
 

@@ -7,27 +7,25 @@ register.config(function($stateProvider, $urlRouterProvider)
 		templateUrl: '/js/register/register.tpl',
 		controller: 'registerCtrl',
 	});
-}).controller('registerCtrl', function($rootScope, $scope, $state, $stateParams, toastr){
+}).controller('registerCtrl', function($rootScope, $scope, $state, $stateParams, toastr, RegisterService){
 	
 	$scope.botCtrl = {
 		isSubmitted : false,
 		progress: false
 	};
 
-	
+	$scope.User = {};
 
-	// $scope.Validate = function(botForm){
-	// 	if(botForm.$valid){
-	// 		$scope.botCtrl.isSubmitted = false;
-
-	// 		if($scope.answer == '30'){
-	// 			$state.go('register');
-	// 		}else{
-	// 			toastr.error("Wrong Answer");
-	// 		}
-	// 	}else{
-	// 		$scope.botCtrl.isSubmitted = true;
-	// 	}
-	// };
+	$scope.submitForm = function(registerForm){
+		if(registerForm.$valid){
+			$scope.botCtrl.isSubmitted = false;
+			RegisterService.submitForm($scope.user).success(function(res){
+				console.log(res);
+			});
+			console.log($scope.user);
+		}else{
+			$scope.botCtrl.isSubmitted = true;
+		}
+	};
 
 });
