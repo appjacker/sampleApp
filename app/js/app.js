@@ -4,7 +4,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, $location
 	// $locationProvider.html5Mode(true);
 	$urlRouterProvider.otherwise( '/home' );
 	$httpProvider.defaults.headers.post['Content-Type'] = 'text/plain';
-  //$httpProvider.defaults.headers= Access-Control-Allow-Origin: *;
+  $httpProvider.defaults.useXDomain = true;
 // $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
  
 });

@@ -24,14 +24,8 @@ var options = new function() {
 	this.FONTS_SRC = 'app/assets/fonts/**/*',
 	this.IMAGES_SRC = 'app/assets/images/**/*',
 	this.JS_SRC_DEV = ['app/assets/js/**/*.js', 'app/js/app.js', 'app/js/**/*.js', 'app/profiles/dev/**/*.js'],
-	// this.JS_SRC_PROD = ['public/libs/js/**/*.js', 'public/js/app.js', 'public/js/**/*.js', 'public/profiles/prod/**/*.js',  '!public/libs/js/sails.io.js'],
-	// this.JS_SRC_UAT = ['public/libs/js/**/*.js', 'public/js/app.js', 'public/js/**/*.js', 'public/profiles/uat/**/*.js',  '!public/libs/js/sails.io.js'],  
-	// this.JS_SRC_LOCAL = ['public/libs/js/**/*.js', 'public/js/app.js', 'public/js/**/*.js', 'public/profiles/local/**/*.js',  '!public/libs/js/sails.io.js'],      // ,'assets/profiles/dev/*.js' 0 index must be vendor libs for convention sake
-	    // ,'assets/profiles/dev/*.js' 0 index must be vendor libs for convention sake
+	this.JS_SRC_PROD = ['app/assets/js/**/*.js', 'app/js/app.js', 'app/js/**/*.js', 'app/profiles/prod/**/*.js'],
 	this.CSS_SRC = ['app/assets/css/**/*.css'], // 0 index must be vendor libs for convention sake
-	// this.SASS_SRC = ['app/sass/**/*.sass', 'app/sass/**/*.scss'],
-
-	//this.DIST_SRC = '.tmp/public/includes/',	// specific to sails-starter-project. change to suit your project needs.
 	
 	this.DIST_SRC = 'app/includes/',
 	this.PARTIALS_DEST = 'app/includes/templates',
@@ -93,26 +87,6 @@ gulp.task('js-dev', ['jshint'], function() {
 		.pipe(gulp.dest(options.JS_DEST));
 });
 
-// gulp.task('js-dev-local', ['jshint', 'template-cache'], function() {
-// 	return gulp.src(options.JS_SRC_LOCAL)
-// 		.pipe(concat(options.JS_DEST_NAME))
-// 		.pipe(gulp.dest(options.JS_DEST));
-// });
-
-// gulp.task('js-dev-uat', ['jshint', 'template-cache'], function() {
-// 	return gulp.src(options.JS_SRC_UAT)
-// 		.pipe(concat(options.JS_DEST_NAME))
-// 		.pipe(gulp.dest(options.JS_DEST));
-// });
-
-// gulp.task('compile-sass', function () {
-//     var stream = gulp.src(options.SASS_SRC) // path to your file
-//     .pipe(concat('app.all.scss'))
-//     .pipe(sass())
-//     .pipe(gulp.dest('app/css/sass'));
-//     return stream;
-// });
-
 gulp.task('css', [], function() {
 	return gulp.src(options.CSS_SRC)
 		.pipe(concat(options.CSS_DEST_NAME))
@@ -138,8 +112,6 @@ gulp.task('clean', function() {
 });
 
 gulp.task('deploy', ['fonts', 'imgs', 'js', 'css']);
-// gulp.task('uat', ['fonts', 'imgs', 'js-dev-uat', 'css']);
-// gulp.task('dev', ['fonts', 'imgs', 'js-dev', 'css']);
 
 gulp.task('default', ['fonts', 'imgs', 'js-dev', 'css-dev'], function() {
 	gulp.watch(options.FONTS_SRC, ['fonts']);

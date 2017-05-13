@@ -13,7 +13,7 @@ home.config(function($stateProvider, $urlRouterProvider)
 		isSubmitted : false,
 		progress: false
 	};
-
+	$rootScope.grantAccess = false;
 	$scope.answer = '';
 
 	$scope.Validate = function(botForm){
@@ -21,6 +21,7 @@ home.config(function($stateProvider, $urlRouterProvider)
 			$scope.botCtrl.isSubmitted = false;
 
 			if($scope.answer == '30'){
+				$rootScope.grantAccess = true;
 				$state.go('register');
 			}else{
 				toastr.error("Wrong Answer");

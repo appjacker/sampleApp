@@ -1,7 +1,7 @@
 <section>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 col-md-offset-5">
+			<div class="col-md-12">
 				<form class="form-horizontal" name="registerForm" ng-submit="submitForm(registerForm)" novalidate>
 					<fieldset>
 						<div id="legend">

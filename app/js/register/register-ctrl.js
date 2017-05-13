@@ -9,6 +9,10 @@ register.config(function($stateProvider, $urlRouterProvider)
 	});
 }).controller('registerCtrl', function($rootScope, $scope, $state, $stateParams, toastr, RegisterService){
 	
+
+	if($rootScope.grantAccess === false || $rootScope.grantAccess === undefined){
+		$state.go('home');
+	}
 	$scope.botCtrl = {
 		isSubmitted : false,
 		progress: false
@@ -21,8 +25,10 @@ register.config(function($stateProvider, $urlRouterProvider)
 			$scope.botCtrl.isSubmitted = false;
 			RegisterService.submitForm($scope.user).success(function(res){
 				console.log(res);
+				toastr.success('Thank you for registering, your feedback was valuable');
+				$rootScope.grantAccess = false;
 			});
-			console.log($scope.user);
+			// console.log($scope.user);
 		}else{
 			$scope.botCtrl.isSubmitted = true;
 		}
