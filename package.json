@@ -1,8 +1,7 @@
 {
-  "name": "Infraprix",
-  "private": true,
+  "name": "SampleApp",
   "version": "0.0.1",
-  "description": "Infraprix App",
+  "description": "Demonstration of work",
   "keywords": [],
   "dependencies": {
     "express": "^4.15.2",
@@ -28,7 +27,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/pushkal/testxom.git"
+    "url": "https://github.com/appjacker/sampleApp.git"
   },
   "author": "pushkal",
   "license": ""
